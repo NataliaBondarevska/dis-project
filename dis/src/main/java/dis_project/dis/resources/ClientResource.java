@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -16,7 +17,7 @@ import dis_project.dis.service.ClientService;
 
 @Path("/clients")
 public class ClientResource {
-	
+	//
 	private ClientService service = new ClientService();
 	
 	@GET
@@ -44,9 +45,11 @@ public class ClientResource {
      */
     @POST
     @Path("/add")
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public void startClient() {
-    	System.out.println("Done");
+    public Client startClient(Client client) {
+    	
+    	return service.putClient(client);
     }
     
     /**
