@@ -1,12 +1,9 @@
 package dis_project.dis.model;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -15,8 +12,6 @@ public class Client {
 
 	private String clientName = "";
 	private double balance = 0;
-	private List<String> stocksName = null;
-	private List<Integer> stocksQuantity = null;
 	private Map<String, Integer> stocks ;
 	
 	public Client() {}
@@ -42,25 +37,6 @@ public class Client {
 		return stocks;
 	}
 	
-	public List<String> getStocksName() {
-		return stocksName;
-	}
-	
-	public void setStocksName(List<String> stocksName) {
-		this.stocksName = stocksName;
-		
-		if (this.stocksQuantity!=null) updateMap();
-	}
-	
-	public List<Integer> getStocksQuantity() {
-		return stocksQuantity;
-	}
-	
-	public void setStocksQuantity(List<Integer> stocksQuantity) {
-		this.stocksQuantity = stocksQuantity;
-		if (this.stocksName != null) updateMap(); 
-	}
-	
 	public String getClientName() {
 		return clientName;
 	}
@@ -75,12 +51,5 @@ public class Client {
 	
 	public void setBalance(double clientBalance) {
 		this.balance = clientBalance;
-	}
-	
-	private void updateMap() {
-		this.stocks = new HashMap<>();
-		for (int i = 0; i < stocksName.size(); i++) {
-			stocks.put(stocksName.get(i), stocksQuantity.get(i));
-		}
 	}
 }

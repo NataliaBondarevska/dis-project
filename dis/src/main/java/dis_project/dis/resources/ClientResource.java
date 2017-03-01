@@ -1,5 +1,6 @@
 package dis_project.dis.resources;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +14,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import dis_project.dis.model.Client;
 import dis_project.dis.service.ClientService;
@@ -52,8 +54,18 @@ public class ClientResource {
     public String startClient(String client) {
     	Gson g = new Gson();
     	Client clientJson = g.fromJson(client, Client.class);
-    	//System.out.println();
     	return this.service.putClient(clientJson);
+    }
+    
+    @POST
+    @Path("/update")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Client> postUpdate(String clients) {
+    	Gson g = new Gson();
+    	Type listType = new TypeToken<ArrayList<Client>>(){}.getType();
+    	List<Client> clientsJson = g.fromJson(clients, listType);
+    	return clientsJson;
     }
     
     /**
