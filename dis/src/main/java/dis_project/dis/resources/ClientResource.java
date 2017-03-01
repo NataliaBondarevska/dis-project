@@ -12,6 +12,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.google.gson.Gson;
+
 import dis_project.dis.model.Client;
 import dis_project.dis.service.ClientService;
 
@@ -47,9 +49,11 @@ public class ClientResource {
     @Path("/add")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Client startClient(Client client) {
-    	
-    	return service.putClient(client);
+    public String startClient(String client) {
+    	Gson g = new Gson();
+    	Client clientJson = g.fromJson(client, Client.class);
+    	//System.out.println();
+    	return this.service.putClient(clientJson);
     }
     
     /**

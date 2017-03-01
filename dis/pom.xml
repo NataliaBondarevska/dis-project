@@ -1,15 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-    <modelVersion>4.0.0</modelVersion>
+   <modelVersion>4.0.0</modelVersion>
 
-    <groupId>dis-project</groupId>
+   <groupId>dis-project</groupId>
     <artifactId>dis</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <name>dis</name>
 
-    <build>
+   <build>
         <finalName>dis</finalName>
         <plugins>
             <plugin>
@@ -25,7 +25,7 @@
         </plugins>
     </build>
 
-    <dependencyManagement>
+   <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.glassfish.jersey</groupId>
@@ -37,7 +37,7 @@
         </dependencies>
     </dependencyManagement>
 
-    <dependencies>
+   <dependencies>
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet-core</artifactId>
@@ -49,14 +49,14 @@
             <artifactId>jersey-media-moxy</artifactId>
         </dependency>
         <dependency>
-        	<groupId>com.amazonaws</groupId>
-        	<artifactId>aws-java-sdk</artifactId>
-        	<version>[1.7.2,2.0.0)</version>
+         <groupId>com.amazonaws</groupId>
+         <artifactId>aws-java-sdk</artifactId>
+         <version>[1.7.2,2.0.0)</version>
         </dependency>
         <dependency>
-        	<groupId>com.google.code.gson</groupId>
-        	<artifactId>gson</artifactId>
-        	<version>2.8.0</version>
+         <groupId>com.google.code.gson</groupId>
+         <artifactId>gson</artifactId>
+         <version>2.8.0</version>
         </dependency>
     </dependencies>
     <properties>
